@@ -1,41 +1,16 @@
-package com.soares.cadastrocliente.api.entities;
+package com.soares.cadastrocliente.api.dto;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import javax.validation.constraints.NotEmpty;
 
-public class Endereco implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @Column(name = "logradouro")
+public class EnderecoDto {
     private String logradouro;
-
-    @Column(name = "bairro")
     private String bairro;
-
-    @Column(name = "cidade")
     private String cidade;
-
-        @Column(name = "uf")
     private String uf;
-
-    @Column(name = "cep")
     private String cep;
-
-    @Column(name = "complemento")
     private String complemento;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    @NotEmpty(message = "Logradouro não pode ser vazio")
     public String getLogradouro() {
         return logradouro;
     }
@@ -44,6 +19,7 @@ public class Endereco implements Serializable {
         this.logradouro = logradouro;
     }
 
+    @NotEmpty(message = "Bairro não pode ser vazio")
     public String getBairro() {
         return bairro;
     }
@@ -52,6 +28,7 @@ public class Endereco implements Serializable {
         this.bairro = bairro;
     }
 
+    @NotEmpty(message = "Cidade não pode ser vazio")
     public String getCidade() {
         return cidade;
     }
@@ -68,6 +45,7 @@ public class Endereco implements Serializable {
         this.uf = uf;
     }
 
+    @NotEmpty(message = "CEP não pode ser vazio")
     public String getCep() {
         return cep;
     }
@@ -83,5 +61,4 @@ public class Endereco implements Serializable {
     public void setComplemento(String complemento) {
         this.complemento = complemento;
     }
-
 }

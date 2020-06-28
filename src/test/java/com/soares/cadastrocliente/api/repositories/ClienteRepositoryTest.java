@@ -1,6 +1,7 @@
 package com.soares.cadastrocliente.api.repositories;
 
 import com.soares.cadastrocliente.api.entities.Cliente;
+import com.soares.cadastrocliente.api.entities.Endereco;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,7 +27,6 @@ class ClienteRepositoryTest {
         c.setId(ID);
         c.setNome("Nome Teste");
         c.setCpf(CPF);
-        c.setEndereco(new ArrayList<>());
         c.setTelefones(new ArrayList<>());
 
         clienteRepository.save(c);

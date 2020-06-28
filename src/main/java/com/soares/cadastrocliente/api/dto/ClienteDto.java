@@ -1,46 +1,22 @@
-package com.soares.cadastrocliente.api.entities;
+package com.soares.cadastrocliente.api.dto;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
-@Entity
-@Table(name = "cliente")
-public class Cliente implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class ClienteDto {
     private Long id;
-
-    @Column(name = "nome", nullable = false)
     private String nome;
-
-    @Column(name = "cpf", nullable = false)
     private String cpf;
-
-    @OneToMany(mappedBy = "cliente",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Telefone> telefones;
-
-    @Column(name = "email")
+    private List<TelefoneDto> telefones;
     private String email;
-
-    @Column(name = "logradouro")
     private String logradouro;
-
-    @Column(name = "bairro")
     private String bairro;
-
-    @Column(name = "cidade")
     private String cidade;
-
-    @Column(name = "uf")
     private String uf;
-
-    @Column(name = "cep")
     private String cep;
-
-    @Column(name = "complemento")
     private String complemento;
 
     public Long getId() {
@@ -51,6 +27,8 @@ public class Cliente implements Serializable {
         this.id = id;
     }
 
+    @NotEmpty(message = "Nome não pode ser vazio")
+    @Length(min = 3, max = 100, message = "Nome deve conter entre 3 e 100 caracteres")
     public String getNome() {
         return nome;
     }
@@ -59,6 +37,7 @@ public class Cliente implements Serializable {
         this.nome = nome;
     }
 
+    @NotEmpty(message = "CPF não pode ser vazio")
     public String getCpf() {
         return cpf;
     }
@@ -67,14 +46,17 @@ public class Cliente implements Serializable {
         this.cpf = cpf;
     }
 
-    public List<Telefone> getTelefones() {
+    public List<TelefoneDto> getTelefones() {
         return telefones;
     }
 
-    public void setTelefones(List<Telefone> telefones) {
+    public void setTelefones(List<TelefoneDto> telefones) {
         this.telefones = telefones;
     }
 
+    @NotEmpty(message = "E-mail não pode ser vazio.")
+    @Length(min = 5, max = 200, message = "E-mail deve conter entre 5 e 200 caracteres.")
+    @Email(message = "E-mail inválido.")
     public String getEmail() {
         return email;
     }
