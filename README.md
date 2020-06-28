@@ -1,2 +1,2 @@
 # cadastro-cliente-servidor
-Projeto de Cadastro de Clientes
+Cadastro de Clientes com Java 8, Spring Boot e React
