@@ -2,10 +2,8 @@ package com.soares.cadastrocliente.api.controller;
 
 import com.soares.cadastrocliente.api.controller.response.Response;
 import com.soares.cadastrocliente.api.dto.ClienteDto;
-import com.soares.cadastrocliente.api.dto.EnderecoDto;
 import com.soares.cadastrocliente.api.dto.TelefoneDto;
 import com.soares.cadastrocliente.api.entities.Cliente;
-import com.soares.cadastrocliente.api.entities.Endereco;
 import com.soares.cadastrocliente.api.entities.Telefone;
 import com.soares.cadastrocliente.api.services.ClienteService;
 import com.soares.cadastrocliente.api.utils.ObjetoUtil;
